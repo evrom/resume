@@ -1,0 +1,71 @@
+%% start of file `resume.tex'.
+%% Copyright 2019-20220 Evan Roman (evanroman1@gmail.com).
+% This work may be distributed and/or modified under the
+% conditions of the MIT license. See LICENSE.TXT.
+%
+% Derived from `template.tex' by Xavier Danaux
+% At the time this file was first modified, a complete, unmodified copy of the LPPL Work
+% was available from: https://github.com/xdanaux/moderncv/blob/master/examples/template.tex
+
+
+
+
+\documentclass[12pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{burgundy}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.77]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Evan}{Roman}
+%\title{} % omitted for public distribution                              
+%\address{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+%\phone[mobile]{} % omitted for public distribution
+\email{evanroman1@gmail.com}                               
+\social[github][github.com/evrom]{github.com/evrom}
+\social[linkedin][linkedin.com/in/evanroman]{linkedin.com/in/evanroman} 
+\extrainfo{US Citizen}
+\begin{document}
+\makecvtitle
+\vspace*{-14mm}
+\section{Relevant Experience}
+\cventry{Oct 2015 - Jan 2017}{Lead Developer}{Like A Local Guide}{Tallinn, Estonia}{}{
+\begin{itemize}
+\item Implemented Sales Funnels from Google Analytics, finding what steps users got lost when booking tours and adding content
+\item Extracted, Transformed, and Loaded (ETL) over 100,000 cities from GeoNames, while deduplicating matching the cities from GeoNames to our existing cities 
+\item Migrated deployment from Archlinux to CentOS
+\item Increased site speed on pages by caching expensive operation results with redis and query optimization with PostgreSQL
+\item Maintained CentOS server and CentOS Vagrant development environment
+\item Scaled product by adding PgBouncer, upgrading server hardware, and appropriately tuning number of worker processes to new hardware
+\item Implemented designs and features on the frontend with SASS and jQuery and on the backend with Django
+\item Interviewed and managed other developers working on the project
+\end{itemize}
+}
+\cventry{Jan 2017 - Jan 2018}{University Lecturer}{Tallinn Institute of Technology}{Tallinn, Estonia}{}{
+\begin{itemize}
+\item Made MediaWiki pages with all lecture notes and tests
+\item Taught "Fundamentals of Python" and "Advanced Python" to bachelors students
+\item Tested students ability to use primitive data types, Lists, and Dictionaries using a file with three unit tests
+\item Gave lectures and excercises on python features including concurrency with threads and asyncio, decorators, iterators, generators, and comprehensions
+\item Created challenges and aided students with popular libraries, like Django, Flask, NumPy, Pandas, Request, and Scikit-learn      
+\end{itemize}
+}
+\section{Education}
+\cventry{May 2018 - March 2020}{BA Mathematics}{Thomas Edison State University}{Trenton, New Jersey}{}{Bachelor's project: \emph{Explaining Black Boxes: Interpretable Machine Learning}. GPA 3.8/4.0}
+\section{Skills}
+\cventry{}{Programming Languages}{}{Python, JavaScript (ES5, ES6, TypeScript), Shell (Posix, bash)}{}{}
+\cventry{}{Document Languages}{}{HTML, Markdown, reStructuredText, {\fontfamily{cmr}\selectfont \LaTeX}, OpenAPI (swagger)}{}{}
+\cventry{}{Databases}{}{PostgreSQL, MySQL, SQLite, Redis}{}{}
+\cventry{}{Deployment Environments}{}{Docker, Docker Compose, RHEL (CentOS), Ubuntu. Vagrant}{}{}
+\end{document}
