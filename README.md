@@ -1,5 +1,5 @@
 # Resume
-![Build Status](https://github.com/evrom/resume/actions/workflows/ci.yml/badge.svg)(https://github.com/evrom/resume/actions/workflows/ci.yml?query=branch%3Amaster)
+[![Build Status](https://github.com/evrom/resume/actions/workflows/ci.yml/badge.svg)](https://github.com/evrom/resume/actions/workflows/ci.yml?query=branch%3Amaster)
 
 Resume made with LaTeX
 
