@@ -26,10 +26,21 @@
     .\strut%
     \ifx&#7&%
       \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
+     
+\newcommand*{\cvproject}[7][.25em]{%
+  \cvitem[#1]{#2}{%
+    {\bfseries#3}%
+    \ifthenelse{\equal{#4}{}}{}{, {\slshape#4}}%
+    \ifthenelse{\equal{#5}{}}{}{, #5}%
+    \ifthenelse{\equal{#6}{}}{}{, #6}%
+    \strut%
+    \ifx&#7&%
+    \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
+
+
 % character encoding
 \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
 %\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
-
 % adjust the page margins
 \newcommand{\margins}{23mm}
 \usepackage{geometry}
@@ -93,6 +104,17 @@ I contracted as a developer for a Bitcoin casino.
 \cventryskill{}{\bfseries Document Languages:}{}{HTML, Markdown, reStructuredText, {\fontfamily{cmr}\selectfont \LaTeX}, OpenAPI (swagger)}{}{}
 \cventryskill{}{\bfseries Databases:}{}{PostgreSQL, MySQL, SQLite, Redis, MongoDB, Apache Spark}{}{}
 \cventryskill{}{\bfseries Deployment Environments:}{}{Docker, Docker Compose, RHEL (CentOS), Vagrant, Kubernetes}{}{}
-\section{Projects}
-\cventry{}{Grid Validator}{\href{https://gridvalidator.com/}{https://gridvalidator.com/}}{}{}{Grid Validator validates, previews, and helps debug \texttt{grid-template-areas} CSS property values. \href{https://github.com/evrom/grid-validator}{https://github.com/evrom/grid-validator}}
+\section{Projects and Open Source}
+\cvproject{}{Grid Validator}{\href{https://gridvalidator.com/}{https://gridvalidator.com/}}{}{}{
+Validates, previews, and helps debug \texttt{grid-template-areas} CSS property values. Built Grid Validator with TypeScript and React \href{https://github.com/evrom/grid-validator}{https://github.com/evrom/grid-validator}}
+
+\cvproject{}{Stylelint}{\href{https://github.com/stylelint/stylelint/}{https://github.com/stylelint/stylelint/}}{}{}{
+Added the validation rule to Stylelint \texttt{named-grid-areas-no-invalid} \href{https://github.com/stylelint/stylelint/pull/5167}{https://github.com/stylelint/stylelint/pull/5167} to validate \texttt{grid-template-areas}}
+
+\cvproject{}{Hurst}{\href{https://crates.io/crates/hurst}{https://crates.io/crates/hurst}}{}{}{
+Calculates estimated Hurst exponent on time series data. Written in Rust.}
+
+\cvproject{}{Hurst Exponent}{\href{http://hurstexponent.com/}{http://hurstexponent.com/}}{}{}{
+View estimated Hurst exponent of time series data. Uses \href{https://crates.io/crates/hurst}{Hurst} compiled to WebAssembly. Built with TypeScript, React, and D3.js}
+
 \end{document}
