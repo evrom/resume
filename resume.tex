@@ -19,7 +19,7 @@
 %\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
 \newcommand*{\cventryskill}[7][.25em]{%
   \cvitem[#1]{#2}{%
-    {#3}%
+    {\bfseries#3}%
     \ifthenelse{\equal{#4}{}}{}{{#4}}%
     \ifthenelse{\equal{#5}{}}{}{ #5}%
     \ifthenelse{\equal{#6}{}}{}{ #6}%
@@ -37,6 +37,7 @@
     \ifx&#7&%
     \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
 
+\usepackage{fontawesome5}
 
 % character encoding
 \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
@@ -99,22 +100,44 @@ I contracted as a developer for a Bitcoin casino.
 \section{Education}
 \cventry{May 2018 - March 2020}{BA Mathematics}{Thomas Edison State University}{Trenton, New Jersey}{}{Bachelor's project: \emph{Explaining Black Boxes: Interpretable Machine Learning}. GPA 3.8/4.0}
 \section{Skills}
-\cventryskill{}{\bfseries Programming Languages:}{}{Python, JavaScript (ES5, ES6, TypeScript), Shell (Posix, bash), Emacs Lisp, Matlab/Octave, R}{}{}
-\cventryskill{}{\bfseries Frameworks \& Libraries:}{}{React, Express, JQuery, Django, Flask, Pandas, Numpy, Sparklyr}{}{}
-\cventryskill{}{\bfseries Document Languages:}{}{HTML, Markdown, reStructuredText, {\fontfamily{cmr}\selectfont \LaTeX}, OpenAPI (swagger)}{}{}
-\cventryskill{}{\bfseries Databases:}{}{PostgreSQL, MySQL, SQLite, Redis, MongoDB, Apache Spark}{}{}
-\cventryskill{}{\bfseries Deployment Environments:}{}{Docker, Docker Compose, RHEL (CentOS), Vagrant, Kubernetes}{}{}
+\cventryskill{}{Programming Languages:}{}{Python, JavaScript (ES5, ES6, TypeScript), Rust, Shell (Posix, bash), Emacs Lisp, Matlab/Octave, R}{}{}
+\cventryskill{}{Frameworks \& Libraries:}{}{React, Express, JQuery, Django, Flask, Pandas, Numpy, Sparklyr, D3.js}{}{}
+\cventryskill{}{Document Languages:}{}{HTML, Markdown, reStructuredText, {\fontfamily{cmr}\selectfont \LaTeX}, OpenAPI (swagger)}{}{}
+\cventryskill{}{Databases:}{}{PostgreSQL, MySQL, SQLite, Redis, MongoDB, Apache Spark}{}{}
+\cventryskill{}{Deployment Environments:}{}{Docker, Docker Compose, RHEL (CentOS), Vagrant, Kubernetes}{}{}
 \section{Projects and Open Source}
 \cvproject{}{Grid Validator}{\href{https://gridvalidator.com/}{https://gridvalidator.com/}}{}{}{
-Validates, previews, and helps debug \texttt{grid-template-areas} CSS property values. Built Grid Validator with TypeScript and React \href{https://github.com/evrom/grid-validator}{https://github.com/evrom/grid-validator}}
+Validates, previews, and helps debug \texttt{grid-template-areas} CSS property values.
+\begin{itemize}
+\item Built Grid Validator with TypeScript and React 
+\item \href{https://github.com/evrom/grid-validator}{https://github.com/evrom/grid-validator  \faIcon{github}}
+\end{itemize}}
+
 
 \cvproject{}{Stylelint}{\href{https://github.com/stylelint/stylelint/}{https://github.com/stylelint/stylelint/}}{}{}{
-Added the validation rule to Stylelint \texttt{named-grid-areas-no-invalid} \href{https://github.com/stylelint/stylelint/pull/5167}{https://github.com/stylelint/stylelint/pull/5167} to validate \texttt{grid-template-areas}}
+Added a new validation rule to Stylelint 
+\begin{itemize}
+\item Validates \texttt{named-grid-areas-no-invalid} to meet W3C specifications
+\item Give useful error messages to find where in the template string there is non-congtiguous or non-rectangular values
+\item \href{https://github.com/stylelint/stylelint/pull/5167}{https://github.com/stylelint/stylelint/pull/5167  \faIcon{github}}
+\end{itemize}}
 
 \cvproject{}{Hurst}{\href{https://crates.io/crates/hurst}{https://crates.io/crates/hurst}}{}{}{
-Calculates estimated Hurst exponent on time series data. Written in Rust.}
+Calculates estimated Hurst exponent on time series data.
+\begin{itemize}
+\item Published WebAssembly package on NPM
+\item Written in Rust
+\item \href{https://github.com/evrom/hurst}{https://github.com/evrom/hurst  \faIcon{github}}
+\end{itemize}
+}
 
 \cvproject{}{Hurst Exponent}{\href{http://hurstexponent.com/}{http://hurstexponent.com/}}{}{}{
-View estimated Hurst exponent of time series data. Uses \href{https://crates.io/crates/hurst}{Hurst} compiled to WebAssembly. Built with TypeScript, React, and D3.js}
+View estimated Hurst exponent of time series data. 
+\begin{itemize}
+\item Built with TypeScript, React, and D3.js
+\item Uses \href{https://crates.io/crates/hurst}{Hurst} compiled to WebAssembly.
+\item \href{https://github.com/evrom/hurst}{https://github.com/evrom/hurst  \faIcon{github}}
+\end{itemize}
+}
 
 \end{document}
