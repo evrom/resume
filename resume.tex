@@ -13,8 +13,10 @@
 \documentclass[12pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % moderncv themes
-\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
 \moderncvcolor{burgundy}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\colorlet{firstnamecolor}{black}
+\colorlet{lastnamecolor}{black}
 %\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
 %\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
 \newcommand*{\cventryskill}[7][.25em]{%
@@ -37,7 +39,6 @@
     \ifx&#7&%
     \else{\newline{}\begin{minipage}[t]{\linewidth}\small#7\end{minipage}}\fi}}
 
-\usepackage{fontawesome5}
 
 % character encoding
 \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
@@ -46,7 +47,14 @@
 \newcommand{\margins}{23mm}
 \usepackage{geometry}
 \geometry{top=19mm, right=\margins, left=\margins, bottom=\margins}
-%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+\setlength{\hintscolumnwidth}{2.2cm}                % narrowed from 3.2cm
+
+% Left-align the hints column for clean vertical alignment of stacked dates
+\renewcommand*{\cvitem}[3][.25em]{%
+  \begin{tabular}{@{}p{\hintscolumnwidth}@{\hspace{\separatorcolumnwidth}}p{\maincolumnwidth}@{}}%
+    \raggedright\hintstyle{#2} &{#3}%
+  \end{tabular}%
+  \par\addvspace{#1}}
 %\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
 % personal data
@@ -61,104 +69,112 @@
 \makecvtitle
 \vspace*{-14mm}
 \section{Relevant Experience}
-\cventry{May 2022 - Current}{Developer}{Loikka}{Turku, Finland}{}{
-  I worked on a team developing a SaaS for management of subscriptions, specifically for management of insurance policies and claims. I currently maintain and develop projects for multiple clients. All projects run on Google Kubernetes Engine and use other Google Cloud services.
+\cventry{May 2022 --\newline Present}{Software and Systems Engineer}{Loikka}{Turku, Finland}{}{
+  \textbf{Automated Testing Engineer (Maritime Sector)} \hfill \textit{Aug 2024 -- Present}
   \begin{itemize}
-  \item Implement CI pipelines in self-hosted Gitlab for QA, testing, and deployment to Google Kuberenetes Engine with Helm and Pulumi
-  \item Create and maintain ETL pipelines that run as Kubernetes' Jobs
-  \item Develop collaborative realtime web applications using websockets, Yjs, and Redis PubSub.
-  \item Develop front-end application in TypeScript with React and Next.js.
-  \item Develop back-end APIs with Typescript that run on Node.js. Usually using Express.js or Fastify.
-  \item Use a variety of data sources and databaes in various projects, often ArangoDB and BigQuery.    
+  \item Designed, implemented, and maintained comprehensive automated acceptance test suites using Cucumber and Gherkin, executed on an air-gapped, on-premise maritime system to support formal Customer Acceptance Testing.
+  \item Built an automated provisioning system using Ansible to configure physical offline hardware, ensuring reliable and repeatable test execution.
+  \item Engineered and maintained a virtualized replica of the system running on Kubernetes within Azure DevOps CI pipelines, maintaining test parity between software versions and operational environments.
+  \item Enabled a proprietary DDSI-RTPS (v2.5) dialect to operate reliably within Kubernetes container networks; used Wireshark for packet-level protocol analysis to diagnose Simple Endpoint Discovery Protocol (SEDP) anomalies and deviations from the OMG standard.
+  \end{itemize}
+  \smallskip
+  \textbf{SaaS \& Cloud Applications} \hfill \textit{May 2022 -- Aug 2024}
+  \begin{itemize}
+  \item Developed a SaaS platform for subscription and insurance policy management, alongside client applications running on Google Cloud and Google Kubernetes Engine (GKE).
+  \item Implemented CI pipelines in self-hosted GitLab for QA, testing, and deployment to Google Kubernetes Engine with Helm and Pulumi.
+  \item Created and maintained ETL pipelines that run as Kubernetes Jobs with ArangoDB and BigQuery.
+  \item Developed collaborative real-time web applications using WebSockets, Yjs, and Redis Pub/Sub.
+  \item Developed front-end applications in TypeScript with React and Next.js, and back-end APIs with Node.js (Fastify, Express).
   \end{itemize}
 }
-\cventry{October 2023 - December 2023}{Teaching Assistant}{Åbo Akademi University}{Turku, Finland}{}{
-  I gave lectures for a masters course in Computer Engineering
+\cventry{Oct 2023 --\newline Dec 2023}{Teaching Assistant}{Åbo Akademi University}{Turku, Finland}{}{
+  I gave lectures for a master's course in Computer Engineering.
 }
-\cventry{May 2021 - September 2021}{Developer}{Digital Onboarding}{Boston, MA}{}{
+\cventry{May 2021 --\newline Sep 2021}{Developer}{Digital Onboarding}{Boston, MA}{}{
   I worked on a team improving a marketing tool for banks and credit unions.
   \begin{itemize}
-    \item Developed back-end API in Elixir using Phoenix and Ecto with PostgreSQL
-    \item Developed front-end SPA in React and Redux
+    \item Developed back-end API in Elixir using Phoenix and Ecto with PostgreSQL.
+    \item Developed front-end SPA in React and Redux.
   \end{itemize}
 }
-\cventry{December 2018 - July 2019}{Senior Developer}{New York, NY}{SAM}{}{
-  I was the technical co-founder to a startup. The project went on hiatus indefinitely due to cofounders (including myself) having other obligations.
+\cventry{Dec 2018 --\newline Jul 2019}{Technical Co-founder}{SAM}{New York, NY}{}{
+  Co-founded early-stage startup, architecting the initial MVP, API specification, and cloud infrastructure.
   \begin{itemize}
-    \item Designed API with founders in OpenAPI on Swagger
-    \item Developed front-end for SPA in React and back-end in Django
-    \item Created DevOps system with Docker and provisioned on AWS
+    \item Designed API with founders in OpenAPI on Swagger.
+    \item Developed front-end for SPA in React and back-end in Django.
+    \item Created DevOps system with Docker and provisioned on AWS.
   \end{itemize}
 }
-\cventry{January 2017 - January 2018}{University Lecturer}{Tallinn University of Technology}{Tallinn, Estonia}{}{
-  I taught "Fundamentals of Python" and "Advanced Python" to bachelors students
+\cventry{Jan 2017 --\newline Jan 2018}{University Lecturer}{Tallinn University of Technology}{Tallinn, Estonia}{}{
+  I taught ``Fundamentals of Python'' and ``Advanced Python'' to bachelor's students.
   \begin{itemize}
-    \item Tested students ability to use primitive data types, Lists, and Dictionaries using a file with three unit tests
-    \item Gave lectures and excercises on python features including concurrency with threads and asyncio, decorators, iterators, generators, and comprehensions
-    \item Created challenges and aided students with popular libraries, like Django, Flask, NumPy, Pandas, Request, and Scikit-learn
+    \item Tested students' ability to use primitive data types, lists, and dictionaries using unit tests.
+    \item Gave lectures and exercises on Python features including concurrency with threads and asyncio, decorators, iterators, generators, and comprehensions.
+    \item Created challenges and aided students with popular libraries, like Django, Flask, NumPy, Pandas, Requests, and Scikit-learn.
   \end{itemize}
 }
-\cventry{October 2015 - February 2017}{Lead Developer}{Like A Local Guide}{Tallinn, Estonia}{}{
-  I took full responsibility for the maintenance and development of "likealocalguide.com". I furthered the company's vision of the project, evolving the website to a more social platform. As the main steward of the project, I lead other developers who also worked on the project.
+\cventry{Oct 2015 --\newline Feb 2017}{Lead Developer}{Like A Local Guide}{Tallinn, Estonia}{}{
+  I took full responsibility for the maintenance and development of ``likealocalguide.com''. I furthered the company's vision of the project, evolving the website to a more social platform. As the main steward of the project, I led other developers who also worked on the project.
   \begin{itemize}
-    \item Implemented Sales Funnels from Google Analytics, finding what steps users got lost when booking tours and adding content
-    \item Extracted, Transformed, and Loaded (ETL) over 100,000 cities from GeoNames, while deduplicating matching the cities from GeoNames to our existing cities
-    \item Migrated deployment from Archlinux to CentOS
-    \item Increased site speed on pages by caching expensive operation results with redis and query optimization with PostgreSQL
-    \item Maintained CentOS server and CentOS Vagrant development environment
-    \item Scaled product by adding PgBouncer, upgrading server hardware, and appropriately tuning number of worker processes to new hardware
-    \item Implemented designs and features on the front-end with SASS and jQuery and on the back-end with Django
-    \item Interviewed and managed other developers working on the project
+    \item Implemented sales funnels from Google Analytics, identifying steps where users dropped off when booking tours or adding content.
+    \item Extracted, Transformed, and Loaded (ETL) over 100,000 cities from GeoNames, while deduplicating and matching GeoNames records with existing database entries.
+    \item Migrated deployment from Arch Linux to CentOS.
+    \item Increased site speed on pages by caching expensive operation results with Redis and query optimization with PostgreSQL.
+    \item Maintained CentOS server and CentOS Vagrant development environment.
+    \item Scaled product by adding PgBouncer, upgrading server hardware, and appropriately tuning the number of worker processes for the new hardware.
+    \item Implemented designs and features on the front-end with SASS and jQuery and on the back-end with Django.
+    \item Interviewed and managed other developers working on the project.
   \end{itemize}
 }
-\cventry{2015}{Developer}{Cakebet}{San Francisco}{}{
+\cventry{May 2015}{Developer}{Cakebet}{San Francisco, CA}{}{
   I contracted as a developer for a Bitcoin casino.
   \begin{itemize}
-    \item Built a currency converter for covering most fiat and numerous cryptocurrencies, that could update at a very high frequency (<3 seconds)
+    \item Built a currency converter covering most fiat and numerous cryptocurrencies, updating at high frequency (<3 seconds).
   \end{itemize}
 }
 \section{Education}
-\cventry{September 2021 - June 2023}{MS Computer Science}{Åbo Akademi University}{Turku, Finland}{}{\begin{itemize}
-    \item Received full tuition merit scholarship
+\cventry{Sep 2021 --\newline Jun 2023}{MS Computer Science}{Åbo Akademi University}{Turku, Finland}{}{\begin{itemize}
+    \item Received full tuition merit scholarship.
     \item Thesis: \emph{Performance of Special-Interest Voting Advice Applications in the 2023 Finnish Parliamentary Election}. \newline \href{https://www.doria.fi/handle/10024/187299}{https://www.doria.fi/handle/10024/187299}
   \end{itemize}}
-\cventry{May 2018 - March 2020}{BA Mathematics}{Thomas Edison State University}{Trenton, New Jersey}{}{Bachelor's project: \emph{Explaining Black Boxes: Interpretable Machine Learning}. GPA 3.8/4.0}
+\cventry{May 2018 --\newline Mar 2020}{BA Mathematics}{Thomas Edison State University}{Trenton, NJ}{}{Bachelor's project: \emph{Explaining Black Boxes: Interpretable Machine Learning}. GPA 3.8/4.0}
 \section{Skills}
-\cventryskill{}{Programming Languages:}{}{Python, JavaScript (ES5, ES6, TypeScript), Elixir, Rust, Shell (Posix, bash), Emacs Lisp, Matlab/Octave, R}{}{}
-\cventryskill{}{Frameworks \& Libraries:}{}{React, Next.js, Yjs, Phoenix, Ecto, JQuery, Django, Flask, Fastify, Express.js, Pandas, Numpy, Sparklyr, D3.js}{}{}
-\cventryskill{}{Document Languages:}{}{HTML, Markdown, reStructuredText, {\fontfamily{cmr}\selectfont \LaTeX}, OpenAPI (swagger)}{}{}
-\cventryskill{}{Databases:}{}{PostgreSQL, MySQL, SQLite, Redis, BigQuery, MongoDB, Apache Spark, ArangoDB}{}{}
-\cventryskill{}{Deployment Environments:}{}{Google Cloud, Amazon Web Services, Kubernetes,  Docker, Docker Compose, RHEL (CentOS), Vagrant, Cloudflare Serverless}{}{}
+\cventryskill{}{Programming Languages:}{}{C++, Python, TypeScript, JavaScript (ES6+), Elixir, Rust, Shell (POSIX, bash), Gherkin, Emacs Lisp, Matlab/Octave, R}{}{}
+\cventryskill{}{Frameworks \& Libraries:}{}{Cucumber, React, Next.js, Yjs, Phoenix, Ecto, Fastify, Express.js, Django, Flask, Pandas, NumPy, D3.js}{}{}
+\cventryskill{}{Systems \& Protocols:}{}{DDS (DDSI-RTPS v2.5, SEDP), Wireshark, OpenAPI (Swagger)}{}{}
+\cventryskill{}{DevOps \& Infrastructure:}{}{Kubernetes (kind, GKE), Docker, Docker Compose, Ansible, Azure DevOps, GitLab CI/CD, Helm, Pulumi, Google Cloud, AWS, Linux (RHEL, Debian)}{}{}
+\cventryskill{}{Databases:}{}{PostgreSQL, MySQL, SQLite, Redis, BigQuery, MongoDB, ArangoDB}{}{}
+\clearpage
 \section{Projects and Open Source}
 \cvproject{}{Grid Validator}{\href{https://evrom.github.io/grid/}{https://evrom.github.io/grid/}}{}{}{
   Validates, previews, and helps debug \texttt{grid-template-areas} CSS property values.
   \begin{itemize}
-    \item Built Grid Validator with TypeScript and React
+    \item Built Grid Validator with TypeScript and React.
     \item \href{https://github.com/evrom/grid-validator}{https://github.com/evrom/grid-validator  \faIcon{github}}
   \end{itemize}}
 
 
 \cvproject{}{Stylelint}{\href{https://github.com/stylelint/stylelint/}{https://github.com/stylelint/stylelint/}}{}{}{
-  Added a new validation rule to Stylelint
+  Added a new validation rule to Stylelint.
   \begin{itemize}
-    \item Validates \texttt{named-grid-areas-no-invalid} to meet W3C specifications
-    \item Give useful error messages to find where in the template string there is non-congtiguous or non-rectangular values
+    \item Validates \texttt{named-grid-areas-no-invalid} against W3C specifications.
+    \item Provides descriptive error messages identifying non-contiguous or non-rectangular values within template strings.
     \item \href{https://github.com/stylelint/stylelint/pull/5167}{https://github.com/stylelint/stylelint/pull/5167  \faIcon{github}}
   \end{itemize}}
 
 \cvproject{}{Hurst}{\href{https://crates.io/crates/hurst}{https://crates.io/crates/hurst}}{}{}{
-  Calculates estimated Hurst exponent on time series data.
+  Calculates the estimated Hurst exponent of time series data.
   \begin{itemize}
-    \item Published WebAssembly package on NPM
-    \item Written in Rust
+    \item Published WebAssembly package on NPM.
+    \item Written in Rust.
     \item \href{https://github.com/evrom/hurst}{https://github.com/evrom/hurst  \faIcon{github}}
   \end{itemize}
 }
 
 \cvproject{}{Hurst Exponent}{\href{https://evrom.github.io/hurst-exponent/}{https://evrom.github.io/hurst-exponent/}}{}{}{
-  View estimated Hurst exponent of time series data.
+  Interactive visualization of the estimated Hurst exponent of time series data.
   \begin{itemize}
-    \item Built with TypeScript, React, and D3.js
+    \item Built with TypeScript, React, and D3.js.
     \item Uses \href{https://crates.io/crates/hurst}{Hurst} compiled to WebAssembly.
     \item \href{https://github.com/evrom/hurst}{https://github.com/evrom/hurst  \faIcon{github}}
   \end{itemize}

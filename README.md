@@ -16,9 +16,30 @@ sudo aptitude install texlive-latex-extra texlive-fonts-extra
 
 ## Building
 
+### With Docker
+
+Build `resume.pdf`:
+```bash
+make docker-pdf
+# or
+docker build --target export --output type=local,dest=. .
 ```
+
+### With Local LaTeX
+
+Prerequisites: Requires a local LaTeX installation, including the ModernCV package and Font Awesome to render social icons.
+
+For Ubuntu / Debian:
+```bash
+sudo aptitude install texlive-latex-extra texlive-fonts-extra
+```
+
+Compile:
+```bash
 make
 ```
 
-which will generate `resume.pdf`
-
+Clean:
+```bash
+make clean
+```

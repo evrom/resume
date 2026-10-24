@@ -1,0 +1,8 @@
+.git
+*.pdf
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.md
